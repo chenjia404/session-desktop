@@ -84,8 +84,6 @@ const getSslAgentForSeedNode = async (seedNodeHost: string, isSsl = false) => {
 
       break;
 
-    default:
-      throw new Error(`Unknown seed node: ${seedNodeHost}`);
   }
 
   // tslint:disable: non-literal-fs-path
@@ -107,7 +105,7 @@ const getSslAgentForSeedNode = async (seedNodeHost: string, isSsl = false) => {
       }
 
       // Pin the public key, similar to HPKP pin-sha25 pinning
-      if (sha256(cert.pubkey) !== pubkey256) {
+      if (pubkey256 !== '' && sha256(cert.pubkey) !== pubkey256) {
         window.log.error('checkServerIdentity: cert.pubkey issue');
 
         const msg =
@@ -118,7 +116,7 @@ const getSslAgentForSeedNode = async (seedNodeHost: string, isSsl = false) => {
       }
 
       // Pin the exact certificate, rather than the pub key
-      if (cert.fingerprint256 !== cert256) {
+      if (cert256 !== '' && cert.fingerprint256 !== cert256) {
         window.log.error('checkServerIdentity: fingerprint256 issue');
 
         const msg =
