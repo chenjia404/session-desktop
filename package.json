@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oxen-io/session-desktop.git"
+    "url": "https://github.com/chenjia404/session-desktop.git"
   },
   "main": "ts/mains/main_node.js",
   "targets": {
