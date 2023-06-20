@@ -256,7 +256,7 @@ async function getSnodesFromSeedUrl(urlObj: URL): Promise<Array<any>> {
 
   const fetchOptions = {
     method: 'POST',
-    timeout: 5000,
+    timeout: 10000,
     body: JSON.stringify(body),
     headers: {
       'User-Agent': 'WhatsApp',
