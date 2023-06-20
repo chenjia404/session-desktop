@@ -203,7 +203,6 @@ function handleUrl(event: any, target: string) {
 
 function captureClicks(window: BrowserWindow) {
   window.webContents.on('will-navigate', handleUrl);
-  window.webContents.on('new-window', handleUrl);
 }
 
 function getDefaultWindowSize() {
@@ -908,9 +907,6 @@ app.on('activate', async () => {
 app.on('web-contents-created', (_createEvent, contents) => {
   contents.on('will-attach-webview', attachEvent => {
     attachEvent.preventDefault();
-  });
-  contents.on('new-window', newEvent => {
-    newEvent.preventDefault();
   });
 });
 

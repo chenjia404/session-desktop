@@ -2,7 +2,7 @@
   "name": "session-desktop",
   "productName": "Session",
   "description": "Private messaging from your desktop",
-  "version": "1.10.11",
+  "version": "1.10.13",
   "license": "GPL-3.0",
   "author": {
     "name": "Oxen Labs",
@@ -203,7 +203,7 @@
     "cross-env": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "dmg-builder": "23.6.0",
-    "electron": "^17.2.0",
+    "electron": "19.1.9",
     "electron-builder": "22.8.0",
     "electron-notarize": "^0.2.0",
     "esbuild": "^0.14.29",
@@ -248,10 +248,12 @@
     "node": "16.13.0"
   },
   "build": {
-    "publish":[{
-      "provider": "generic",
-      "url": "https://dl.ethtweet.io/"
-    }],
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://dl.ethtweet.io/"
+      }
+    ],
     "appId": "com.loki-project.messenger-desktop",
     "afterSign": "build/notarize.js",
     "afterPack": "build/afterPackHook.js",
