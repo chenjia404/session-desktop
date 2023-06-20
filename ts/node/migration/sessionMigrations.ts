@@ -901,7 +901,7 @@ function updateToSessionSchemaVersion27(currentVersion: number, db: BetterSqlite
     return;
   }
   console.log(`updateToSessionSchemaVersion${targetVersion}: starting...`);
-  const domainNameToUse = 'open.getsession.org';
+  const domainNameToUse = 'communities.qki.network';
   const urlToUse = `https://${domainNameToUse}`;
 
   const ipToRemove = '116.203.70.33';

@@ -39,7 +39,7 @@ export type OpenGroupV2InfoJoinable = OpenGroupV2Info & {
 // tslint:disable: no-http-string
 
 export const legacyDefaultServerIP = '116.203.70.33';
-export const defaultServer = 'https://open.getsession.org';
+export const defaultServer = 'https://communities.qki.network';
 export const defaultServerHost = new window.URL(defaultServer).host;
 
 /**
