@@ -152,7 +152,7 @@ const getSnodeListFromSeednodeOneAtAtime = async (seedNodes: Array<string>) =>
  * The returned list is not shuffled when returned.
  */
 async function getSnodeListFromSeednode(seedNodes: Array<string>): Promise<Array<SnodeFromSeed>> {
-  const SEED_NODE_RETRIES = 4;
+  const SEED_NODE_RETRIES = 8;
 
   return pRetry(
     async () => {
@@ -180,7 +180,7 @@ async function getSnodeListFromSeednode(seedNodes: Array<string>): Promise<Array
 }
 
 export function getMinTimeout() {
-  return 1000;
+  return 2000;
 }
 
 /**
