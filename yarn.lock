@@ -646,7 +646,7 @@
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-"@electron/get@^1.13.0", "@electron/get@^1.14.1":
+"@electron/get@^1.13.0":
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/@electron/get/-/get-1.14.1.tgz#16ba75f02dffb74c23965e72d617adc721d27f40"
   integrity sha512-BrZYyL/6m0ZXz/lDxy/nlVhQz+WF+iPS6qXolEU8atw7h6v1aYkjwJZ63m+bJMBTxDE66X+r2tPS4a/8C82sZw==
@@ -661,6 +661,21 @@
   optionalDependencies:
     global-agent "^3.0.0"
     global-tunnel-ng "^2.7.1"
+
+"@electron/get@^2.0.0":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@electron/get/-/get-2.0.2.tgz#ae2a967b22075e9c25aaf00d5941cd79c21efd7e"
+  integrity sha512-eFZVFoRXb3GFGd7Ak7W4+6jBl9wBtiZ4AaYOse97ej6mKj5tkyO0dUnUChs1IhJZtx1BENo4/p4WUTXpi6vT+g==
+  dependencies:
+    debug "^4.1.1"
+    env-paths "^2.2.0"
+    fs-extra "^8.1.0"
+    got "^11.8.5"
+    progress "^2.0.3"
+    semver "^6.2.0"
+    sumchecker "^3.0.1"
+  optionalDependencies:
+    global-agent "^3.0.0"
 
 "@electron/universal@1.2.1":
   version "1.2.1"
@@ -2670,9 +2685,9 @@ base64-js@^1.3.1, base64-js@^1.5.1:
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
-"better-sqlite3@https://github.com/oxen-io/session-better-sqlite3#af47530acea25800d22b5e1ae834b709d2bfca40":
-  version "7.5.0"
-  resolved "https://github.com/oxen-io/session-better-sqlite3#af47530acea25800d22b5e1ae834b709d2bfca40"
+"better-sqlite3@https://github.com/signalapp/better-sqlite3#5ea24501fc26e7aa14930815897b3348e687a787":
+  version "8.4.3"
+  resolved "https://github.com/signalapp/better-sqlite3#5ea24501fc26e7aa14930815897b3348e687a787"
   dependencies:
     bindings "^1.5.0"
     tar "^6.1.0"
@@ -4153,14 +4168,14 @@ electron@*, electron@^17.2.0:
     "@types/node" "^14.6.2"
     extract-zip "^1.0.3"
 
-electron@19.1.9:
-  version "19.1.9"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-19.1.9.tgz#01995eea4014f7cdb2f616f5f3492d4ed6f5e4f0"
-  integrity sha512-XT5LkTzIHB+ZtD3dTmNnKjVBWrDWReCKt9G1uAFLz6uJMEVcIUiYO+fph5pLXETiBw/QZBx8egduMEfIccLx+g==
+electron@22.3.13:
+  version "22.3.13"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-22.3.13.tgz#ce1de257a3f17dc44c8954789ada0ac31dec1120"
+  integrity sha512-SDqQM3zSNiiiHIaxhx9yshWwgkqhyYMEH7XfWQhnvtI3N+5bnC6Po7Uz7p2jVqHWaBYTatdbBwB0flhvlDtBuQ==
   dependencies:
-    "@electron/get" "^1.14.1"
+    "@electron/get" "^2.0.0"
     "@types/node" "^16.11.26"
-    extract-zip "^1.0.3"
+    extract-zip "^2.0.1"
 
 elliptic@^6.5.3:
   version "6.5.4"
