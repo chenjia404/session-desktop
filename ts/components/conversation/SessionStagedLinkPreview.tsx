@@ -51,8 +51,9 @@ export const getPreview = async (
   const { title, imageHref, date } = linkPreviewMetadata;
 
   let image;
+  let objectUrl:null | string;
+  objectUrl = null
   if (imageHref && LinkPreviews.isLinkSafeToPreview(imageHref)) {
-    let objectUrl: void | string;
     try {
       window?.log?.info('insecureNodeFetch => plaintext for getPreview()');
 

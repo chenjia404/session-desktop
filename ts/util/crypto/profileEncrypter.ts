@@ -4,7 +4,7 @@ const PROFILE_IV_LENGTH = 12; // bytes
 const PROFILE_KEY_LENGTH = 32; // bytes
 const PROFILE_TAG_LENGTH = 128; // bits
 
-export async function decryptProfile(data: ArrayBuffer, key: ArrayBuffer): Promise<ArrayBuffer> {
+export async function decryptProfile(data: ArrayBuffer, key: ArrayBuffer): Promise<void | ArrayBuffer> {
   if (data.byteLength < 12 + 16 + 1) {
     throw new Error(`Got too short input: ${data.byteLength}`);
   }

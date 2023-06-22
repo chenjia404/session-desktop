@@ -37,7 +37,7 @@ function overwriteOutgoingTimestampWithNetworkTimestamp(message: RawMessage) {
   const contentDecoded = SignalService.Content.decode(plainTextBuffer);
 
   const { dataMessage, dataExtractionNotification, typingMessage } = contentDecoded;
-  if (dataMessage && dataMessage.timestamp && dataMessage.timestamp > 0) {
+  if (dataMessage && dataMessage.timestamp && dataMessage.timestamp && typeof dataMessage.timestamp == "number" && dataMessage.timestamp  > 0) {
     // this is a sync message, do not overwrite the message timestamp
     if (dataMessage.syncTarget) {
       return {
@@ -50,11 +50,12 @@ function overwriteOutgoingTimestampWithNetworkTimestamp(message: RawMessage) {
   if (
     dataExtractionNotification &&
     dataExtractionNotification.timestamp &&
+    typeof dataExtractionNotification.timestamp == "number" && 
     dataExtractionNotification.timestamp > 0
   ) {
     dataExtractionNotification.timestamp = networkTimestamp;
   }
-  if (typingMessage && typingMessage.timestamp && typingMessage.timestamp > 0) {
+  if (typingMessage && typingMessage.timestamp && typeof typingMessage.timestamp == "number" &&  typingMessage.timestamp > 0) {
     typingMessage.timestamp = networkTimestamp;
   }
   const overRiddenTimestampBuffer = SignalService.Content.encode(contentDecoded).finish();

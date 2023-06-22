@@ -188,7 +188,6 @@ export async function autoScale<T extends { contentType: string; blob: Blob }>(
     maxHeight: makeSquare ? maxMeasurements?.maxSide : maxHeight,
     ...crop,
     orientation: 1,
-    aspectRatio: makeSquare ? 1 : undefined,
     canvas: true,
     imageSmoothingQuality: 'medium',
   };

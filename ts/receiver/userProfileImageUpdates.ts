@@ -112,6 +112,10 @@ async function createOrUpdateProfile(
           try {
             const profileKeyArrayBuffer = ByteBuffer.wrap(profileKey, encoding).toArrayBuffer();
             const decryptedData = await decryptProfile(downloaded.data, profileKeyArrayBuffer);
+            if(!decryptedData){
+              return;
+            }
+            
             window.log.info(
               `[profileupdate] about to auto scale avatar for convo ${conversation.id}`
             );
