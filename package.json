@@ -2,7 +2,7 @@
   "name": "session-desktop",
   "productName": "Session",
   "description": "Private messaging from your desktop",
-  "version": "1.10.16",
+  "version": "1.10.16.2",
   "license": "GPL-3.0",
   "author": {
     "name": "Oxen Labs",
@@ -224,7 +224,7 @@
     "jsdom": "^19.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "10.0.0",
-    "node-gyp": "9.0.0",
+    "node-gyp": "9.3.0",
     "node-loader": "^2.0.0",
     "nyc": "^15.1.0",
     "parcel": "^2.8.3",
@@ -245,7 +245,7 @@
     "typescript": "^4.6.3"
   },
   "engines": {
-    "node": "16.13.0"
+    "node": "16.19.0"
   },
   "build": {
     "publish": [
