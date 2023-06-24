@@ -81,7 +81,8 @@ export async function autoScaleForIncomingAvatar(incomingAvatar: ArrayBuffer) {
   // the avatar url send in a message does not contain anything related to the avatar MIME type, so
   // we use imageType to find the MIMEtype from the buffer itself
 
-  const contentType = imageType(new Uint8Array(incomingAvatar))?.mime || IMAGE_UNKNOWN;
+  const type =await imageType(new Uint8Array(incomingAvatar))
+  const contentType = type?.mime || IMAGE_UNKNOWN;
   const blob = arrayBufferToBlob(incomingAvatar, contentType);
   // we do not know how to resize an incoming gif avatar, so just keep it full sized.
   if (contentType === IMAGE_GIF) {
@@ -340,7 +341,8 @@ export async function getFileAndStoreLocallyImageBuffer(imageBuffer: ArrayBuffer
     return null;
   }
 
-  const contentType = imageType(new Uint8Array(imageBuffer))?.mime || IMAGE_UNKNOWN;
+  const type =await imageType(new Uint8Array(imageBuffer))
+  const contentType = type?.mime || IMAGE_UNKNOWN;
 
   const blob = new Blob([imageBuffer], { type: contentType });
 

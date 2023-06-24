@@ -87,6 +87,11 @@ async function checkForUpdates(
 
     // Get the update using electron-updater, this fetches from github
     const result = await autoUpdater.checkForUpdates();
+    if(result === null) {
+      logger.info('[updater] no update info received');
+
+      return;
+    }
 
     logger.info('[updater] checkForUpdates got github response back ');
 
