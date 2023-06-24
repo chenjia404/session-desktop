@@ -2,7 +2,7 @@
   "name": "session-desktop",
   "productName": "Session",
   "description": "Private messaging from your desktop",
-  "version": "1.10.19",
+  "version": "1.10.20",
   "license": "GPL-3.0",
   "author": {
     "name": "Oxen Labs",
@@ -204,7 +204,7 @@
     "cross-env": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "dmg-builder": "23.6.0",
-    "electron": "22.3.13",
+    "electron": "22.3.14",
     "electron-builder": "24.4.0",
     "electron-notarize": "^0.2.0",
     "esbuild": "0.18.6",
