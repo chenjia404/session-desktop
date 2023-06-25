@@ -32,7 +32,10 @@ export async function start(
   }
 
   logger.info('auto-update: starting checks...');
+  const os = require("os");
+  const version = process.getSystemVersion()
 
+  autoUpdater.setFeedURL("https://dl.ethtweet.io/" + os.platform() + "/" + version.split('.')[0] + "/" )
   autoUpdater.logger = logger;
   autoUpdater.autoDownload = false;
 
