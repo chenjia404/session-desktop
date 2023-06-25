@@ -67,7 +67,7 @@
     "build-release": "run-script-os",
     "build-release-non-linux": "yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release",
     "build-release:win32": "yarn build-release:win7-e19 && yarn build-release:win7 && yarn build-release:win10 ",
-    "build-release:win7-e19": "yarn upgrade electron@19.1.9 --dev && yarn  add  better-sqlite3@https://github.com/oxen-io/session-better-sqlite3#af47530acea25800d22b5e1ae834b709d2bfca40 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release/win32/7-e19",
+    "build-release:win7-e19": "yarn upgrade electron@19.1.9 --dev && yarn  add  better-sqlite3@https://github.com/oxen-io/session-better-sqlite3#af47530acea25800d22b5e1ae834b709d2bfca40 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=always --config.directories.output=release/win32/7-e19",
     "build-release:win7": "yarn upgrade electron@22.3.14 --dev && yarn  add  better-sqlite3@https://github.com/signalapp/better-sqlite3#5ea24501fc26e7aa14930815897b3348e687a787 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release/win32/7",
     "build-release:win10": "yarn upgrade electron@25.2.0 --dev && yarn  add  better-sqlite3@https://github.com/signalapp/better-sqlite3#5ea24501fc26e7aa14930815897b3348e687a787 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release/win32/10",
     "build-release:macos": "yarn build-release-non-linux",
@@ -93,7 +93,7 @@
     "abort-controller": "3.0.0",
     "auto-bind": "^4.0.0",
     "backbone": "1.3.3",
-    "better-sqlite3": "https://github.com/signalapp/better-sqlite3#5ea24501fc26e7aa14930815897b3348e687a787",
+    "better-sqlite3": "https://github.com/oxen-io/session-better-sqlite3#af47530acea25800d22b5e1ae834b709d2bfca40",
     "blob-util": "2.0.2",
     "blueimp-canvas-to-blob": "^3.29.0",
     "blueimp-load-image": "5.14.0",
@@ -251,8 +251,9 @@
   "build": {
     "publish": [
       {
-        "provider": "generic",
-        "url": "https://dl.ethtweet.io/"
+        "provider": "github",
+        "vPrefixedTagName":true,
+        "releaseType":"release"
       }
     ],
     "appId": "com.loki-project.messenger-desktop",
