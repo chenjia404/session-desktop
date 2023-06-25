@@ -230,6 +230,7 @@ window.nodeSetImmediate = setImmediate;
 
 const data = require('./ts/data/dataInit');
 const { setupi18n } = require('./ts/util/i18n');
+const fetch = require('node-fetch');
 window.Signal = data.initData();
 
 const { getConversationController } = require('./ts/session/conversations/ConversationController');
@@ -237,7 +238,7 @@ window.getConversationController = getConversationController;
 // Linux seems to periodically let the event loop stop, so this is a global workaround
 setInterval(() => {
   // tslint:disable-next-line: no-empty
-  window.nodeSetImmediate(() => {});
+  window.nodeSetImmediate(() => { });
 }, 1000);
 
 window.React = require('react');
@@ -245,18 +246,45 @@ window.ReactDOM = require('react-dom');
 
 window.clipboard = clipboard;
 
-window.getSeedNodeList = () =>
-  window.sessionFeatureFlags.useTestNet
-    ? ['http://seed2.getsession.org:38157']
-    : [
-        // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
-        'https://node1.ethtweet.io/',
-        'https://node2.ethtweet.io/',
-        'https://node3.ethtweet.io/',
-        'https://seed1.getsession.org:4443/',
-        'https://seed2.getsession.org:4443/',
-        'https://seed3.getsession.org:4443/',
-      ];
+window.getSeedNodeList = () => {
+  let api_url = "https://ipinfo.io/";
+  let settings = { method: "Get" };
+
+  try {
+    fetch(api_url, settings)
+    .then(res => res.json())
+    .then((json) => {
+      if (json.country == "CN") {
+        return [
+          // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
+          'https://node1.ethtweet.io/',
+          'https://node2.ethtweet.io/',
+          'https://node3.ethtweet.io/',
+        ];
+      } else {
+        return [
+          // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
+          'https://node1.ethtweet.io/',
+          'https://node2.ethtweet.io/',
+          'https://node3.ethtweet.io/',
+          'https://seed1.getsession.org:4443/',
+          'https://seed2.getsession.org:4443/',
+          'https://seed3.getsession.org:4443/',
+        ]
+      }
+      // do something with JSON
+    });
+  }
+  catch (err) {
+    return [
+      // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
+      'https://node1.ethtweet.io/',
+      'https://node2.ethtweet.io/',
+      'https://node3.ethtweet.io/',
+    ];
+  }
+  
+}
 
 const { locale: localFromEnv } = config;
 window.i18n = setupi18n(localFromEnv || 'en', localeMessages);
