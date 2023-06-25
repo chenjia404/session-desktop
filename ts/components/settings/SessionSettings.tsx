@@ -101,7 +101,7 @@ const SessionInfo = () => {
           }}
         />
       </StyledSpanSessionInfo>
-      <StyledSpanSessionInfo>{window.versionInfo.commitHash}</StyledSpanSessionInfo>
+      <StyledSpanSessionInfo>commit:{window.versionInfo.commitHash}</StyledSpanSessionInfo>
     </StyledVersionInfo>
   );
 };
