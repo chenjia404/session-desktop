@@ -250,8 +250,7 @@ window.getSeedNodeList = () => {
   let api_url = "https://ipinfo.io/";
   let settings = { method: "Get" };
 
-  try {
-    fetch(api_url, settings)
+  fetch(api_url, settings)
     .then(res => res.json())
     .then((json) => {
       if (json.country == "CN") {
@@ -273,17 +272,17 @@ window.getSeedNodeList = () => {
         ]
       }
       // do something with JSON
+    })
+    .catch(function (e) {
+      return [
+        // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
+        'https://node1.ethtweet.io/',
+        'https://node2.ethtweet.io/',
+        'https://node3.ethtweet.io/',
+      ];
     });
-  }
-  catch (err) {
-    return [
-      // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
-      'https://node1.ethtweet.io/',
-      'https://node2.ethtweet.io/',
-      'https://node3.ethtweet.io/',
-    ];
-  }
-  
+
+
 }
 
 const { locale: localFromEnv } = config;

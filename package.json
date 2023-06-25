@@ -207,7 +207,7 @@
     "cross-env": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "dmg-builder": "23.6.0",
-    "electron": "22.x.x",
+    "electron": "25.x.x",
     "electron-builder": "24.4.0",
     "electron-notarize": "^0.2.0",
     "esbuild": "0.18.8",
