@@ -90,7 +90,7 @@ const SessionInfo = () => {
           );
         }}
       >
-        v{window.versionInfo.version}
+        v{window.versionInfo.version}(Chromium {process.versions.chrome})
       </StyledSpanSessionInfo>
       <StyledSpanSessionInfo>
         <SessionIconButton
