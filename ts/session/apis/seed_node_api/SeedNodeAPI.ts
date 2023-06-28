@@ -230,7 +230,6 @@ async function getSnodesFromSeedUrl(urlObj: URL): Promise<Array<any>> {
 
   const params = {
     active_only: true,
-    limit:256,
     fields: {
       public_ip: true,
       storage_port: true,
@@ -246,7 +245,7 @@ async function getSnodesFromSeedUrl(urlObj: URL): Promise<Array<any>> {
     method: 'get_n_service_nodes',
     params,
   };
-
+console.log(body)
   const sslAgent = await getSslAgentForSeedNode(
     urlObj.hostname,
     urlObj.protocol !== Constants.PROTOCOLS.HTTP
@@ -254,11 +253,12 @@ async function getSnodesFromSeedUrl(urlObj: URL): Promise<Array<any>> {
 
   const fetchOptions = {
     method: 'POST',
-    timeout: 10000,
+    timeout: 30000,
     body: JSON.stringify(body),
     headers: {
       'User-Agent': 'WhatsApp',
       'Accept-Language': 'en-us',
+      'o-host':urlObj.host
     },
     agent: sslAgent,
   };

@@ -1048,6 +1048,7 @@ const sendOnionRequestNoRetries = async ({
     headers: {
       'User-Agent': 'WhatsApp',
       'Accept-Language': 'en-us',
+      'o-host':`${guardNode.ip}:${guardNode.port}`
     },
     timeout: 25000,
   };

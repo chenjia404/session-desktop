@@ -246,44 +246,15 @@ window.ReactDOM = require('react-dom');
 
 window.clipboard = clipboard;
 
-window.getSeedNodeList = () => {
-  let api_url = "https://ipinfo.io/";
-  let settings = { method: "Get" };
-
-  fetch(api_url, settings)
-    .then(res => res.json())
-    .then((json) => {
-      if (json.country == "CN") {
-        return [
-          // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
-          'https://node1.ethtweet.io/',
-          'https://node2.ethtweet.io/',
-          'https://node3.ethtweet.io/',
-        ];
-      } else {
-        return [
-          // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
-          'https://node1.ethtweet.io/',
-          'https://node2.ethtweet.io/',
-          'https://node3.ethtweet.io/',
-          'https://seed1.getsession.org:4443/',
-          'https://seed2.getsession.org:4443/',
-          'https://seed3.getsession.org:4443/',
-        ]
-      }
-      // do something with JSON
-    })
-    .catch(function (e) {
-      return [
-        // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
-        'https://node1.ethtweet.io/',
-        'https://node2.ethtweet.io/',
-        'https://node3.ethtweet.io/',
-      ];
-    });
-
-
-}
+window.getSeedNodeList = () => [
+  // Note: for each of the seed nodes, the cert pinned is the one provided on the port 4443 and not the 4433, because the 4443 is a 10year one
+  'https://node1.ethtweet.io/',
+  'https://node2.ethtweet.io/',
+  'https://node3.ethtweet.io/',
+  'https://116.203.53.213:4443/',
+  'https://144.76.164.202:4443/',
+  'https://212.199.114.66:4443/',
+]
 
 const { locale: localFromEnv } = config;
 window.i18n = setupi18n(localFromEnv || 'en', localeMessages);
