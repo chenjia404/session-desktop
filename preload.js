@@ -251,9 +251,9 @@ window.getSeedNodeList = () => [
   'https://node1.ethtweet.io/',
   'https://node2.ethtweet.io/',
   'https://node3.ethtweet.io/',
-  'https://116.203.53.213:4443/',
-  'https://144.76.164.202:4443/',
-  'https://212.199.114.66:4443/',
+  'https://seed1.getsession.org:4443/',
+  'https://seed2.getsession.org:4443/',
+  'https://seed3.getsession.org:4443/',
 ]
 
 const { locale: localFromEnv } = config;

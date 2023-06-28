@@ -726,6 +726,13 @@ app.on('ready', async () => {
   const userDataPath = await getRealPath(app.getPath('userData'));
   const installPath = await getRealPath(join(app.getAppPath(), '..', '..'));
 
+  app.configureHostResolver({
+    secureDnsMode: 'secure',
+    secureDnsServers: [
+      'https://1.1.1.1/dns-query'
+    ]
+  })
+
   installFileHandler({
     protocol: electronProtocol,
     userDataPath,
