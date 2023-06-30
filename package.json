@@ -67,7 +67,7 @@
     "build-release": "run-script-os",
     "build-release-non-linux": "yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release",
     "build-release:win32": "yarn build-release:win7 && yarn build-release:win10 ",
-    "build-release:win7": "yarn upgrade electron@22.x.x --dev && yarn  add  better-sqlite3@https://github.com/oxen-io/session-better-sqlite3#afdbd49cf18d0046d7385ca4d23da20c66f00d50 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release/win32/7",
+    "build-release:win7": "yarn upgrade electron@22.x.x --dev && yarn  add  better-sqlite3@https://github.com/oxen-io/session-better-sqlite3#afdbd49cf18d0046d7385ca4d23da20c66f00d50 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=always --config.directories.output=release/win32/7",
     "build-release:win10": "yarn upgrade electron@25.x.x --dev && yarn  add  better-sqlite3@https://github.com/oxen-io/session-better-sqlite3#afdbd49cf18d0046d7385ca4d23da20c66f00d50 && yarn install --frozen-lockfile && yarn build-everything && cross-env SIGNAL_ENV=production electron-builder --config.extraMetadata.environment=production --publish=never --config.directories.output=release/win32/10",
     "build-release:macos": "yarn build-release-non-linux",
     "build-release:linux": "yarn sedtoDeb; yarn build-release-non-linux && yarn sedtoAppImage && yarn build-release-non-linux && yarn sedtoDeb",
