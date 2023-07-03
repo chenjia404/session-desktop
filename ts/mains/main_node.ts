@@ -726,10 +726,16 @@ app.on('ready', async () => {
   const userDataPath = await getRealPath(app.getPath('userData'));
   const installPath = await getRealPath(join(app.getAppPath(), '..', '..'));
 
+  let secureDnsServers = userConfig.get('secureDnsServers');
+  if (!secureDnsServers) {
+    userConfig.set('secureDnsServers', 'https://1.1.1.1/dns-query');
+    secureDnsServers = 'https://1.1.1.1/dns-query'
+  }
+
   app.configureHostResolver({
     secureDnsMode: 'secure',
     secureDnsServers: [
-      'https://1.1.1.1/dns-query'
+      secureDnsServers?.toString()
     ]
   })
 
